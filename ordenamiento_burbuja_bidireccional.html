@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento de burbuja bidireccional</title>
+    <script>
+        var vector=[13,9,12,14,18,15,8,10,19,16,1,2,11,17,7,5,20,3,6,4];
+        
+        function cocktalil_sort(vector)
+        {
+            var permutation;
+            var actual = 0, direccion = 1;
+            var comienzo = 1, fin = 19;
+            do{
+                permutation=false;
+                while (((direccion==1) && (actual<fin)) ||  ((direccion==-1) && (actual>comienzo)))
+                {
+                    actual += direccion;
+                    if (vector[actual]<vector[actual-1])
+                    {
+                        var temp = vector[actual];
+                        vector[actual]=vector[actual-1];
+                        vector[actual-1]=temp;
+                        permutation=true;
+                    }
+                }
+                direccion = -direccion;
+            }while (permutation);
+            document.getElementById("lblResultado").innerHTML = "El listado ordenado es : [" + vector +"]";
+        }
+        
+    </script>
+</head>
+<body>
+    <!--Formularios en HTML que son procesadas por JS-->
+    <h1>ORDENAMIENTO</h1>
+    Arreglo = [13, 9, 12, 14, 18, 15, 8, 10, 19, 16, 1, 2, 11, 17, 7, 5, 20, 3, 6, 4]
+    <p>
+        <button type="button" onclick="cocktalil_sort(vector)">Ordenamiento de burbuja bidireccional</button>
+    </p>
+    <p id = "lblResultado"></p>
+</body>
+</html>

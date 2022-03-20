@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento de burbuja</title>
+    <script>
+        var vector=[13,9,12,14,18,15,8,10,19,16,1,2,11,17,7,5,20,3,6,4];
+        function bubble_sort(vector)
+        {
+            var iteración = 0;
+            var permutation = true;
+            var actual;
+            while (permutation){
+                permutation = false;
+                iteración ++;
+                for (actual = 0; actual<20 - iteración; actual++)
+                {
+                    if (vector[actual]>vector[actual+1])
+                    {
+                        permutation = true;
+                        //Intercambiamos los dos elementos
+                        var temp = vector [actual];
+                        vector[actual] = vector[actual+1];
+                        vector[actual+1] = temp;
+                    }
+                }
+            }
+            document.getElementById("lblResultado").innerHTML = "El listado ordenado es : [" + vector +"]";
+        }
+    </script>
+</head>
+<body>
+    <!--Formularios en HTML que son procesadas por JS-->
+    <h1>ORDENAMIENTO</h1>
+    Arreglo = [13, 9, 12, 14, 18, 15, 8, 10, 19, 16, 1, 2, 11, 17, 7, 5, 20, 3, 6, 4]
+    <p>
+        <button type="button" onclick="bubble_sort(vector)">Ordenamiento de burbuja</button>
+    </p>
+    <p id = "lblResultado"></p>
+</body>
+</html>
