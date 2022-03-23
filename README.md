@@ -1,2 +1,2 @@
 # Ordenamiento
-Implemente Algoritmos de Ordenamiento en JavaScript
+Implementación de Algoritmos de Ordenamiento en JavaScript
