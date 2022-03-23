@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento de Peine</title>
+    <script type="text/javascript">
+        vector = [8,19,1,15,6,20,11,4,18,12,7,13,2,10,5,17,9,16,3,14];
+        function comb_sort(vector){
+            if (vector.length < 2) return vector;
+            let gap = vector.length
+            do{
+                gap = gap > 1 ? Math.floor(gap/1.3) :1
+
+                for(let i = 0; i+gap < vector.length; i++){
+                    if(vector[i] > vector [i + gap]){
+                        let temp = vector[i]
+                        vector[i]=vector[i+gap]
+                        vector[i+gap]=temp
+                    }
+                }
+            }while (gap > 1)
+            document.getElementById("lblResultado").innerHTML = "El listado ordenado es : [" + vector +"]";
+        }
+    </script>
+</head>
+<body>
+    <h1>Ordenamiento</h1>
+    Arreglo = [8, 19, 1, 15, 6, 20, 11, 4, 18, 12, 7, 13, 2, 10, 5, 17, 9, 16, 3, 14]
+    <p>
+        <button type="button" onclick="comb_sort(vector)">Ordenamiento de peine</button>
+    </p>
+    <p id = "lblResultado"></p>
+</body>
+</html>

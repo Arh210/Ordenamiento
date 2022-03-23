@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento de Shell</title>
+    <script>
+        datos = [13,9,15,8,6,5,20,3,16,4,10,19,12,7,11,1,2,18,17,14];
+        function shellsort(datos) {
+            let incremento = datos.length / 2;
+
+            while (incremento > 0) {
+                for (let i = 0; i < datos.length; i++) {
+                    let j = i;
+                    let dato = datos[i];
+
+                    while (j >= incremento && datos[j - incremento] > dato) {
+                        datos[j] = datos[j - incremento];
+                        j -= incremento;
+                    }
+
+                    datos[j] = dato;
+                }
+
+                if (incremento == 2) {
+                    incremento = 1;
+                } else {
+                    incremento = parseInt(incremento * 5 / 11);
+                }
+            }
+            return datos;
+        }
+        Arreglo_Ordenado="El arreglo ordenado es --> ["+shellsort(datos)+"]";
+
+    </script>
+</head>
+<body>
+    <!--Formularios en HTML que son procesadas por JS-->
+    <h1>ORDENAMIENTO</h1>
+    Arreglo = [13, 9, 15, 8, 6, 5, 20, 3, 16, 4, 10, 19, 12, 7, 11, 1, 2, 18, 17, 14]
+    <p>
+        <button type="button" onclick="document.write(Arreglo_Ordenado)">Ordenamiento de Shell</button>
+    </p>
+</body>
+</html>

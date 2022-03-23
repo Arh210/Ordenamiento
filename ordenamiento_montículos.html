@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento por montículos</title>
+    <script>
+        array=[6,5,20,3,16,4,13,9,15,8,10,19,12,14,11,1,2,18,17,7]
+        function heaps(array, length, parenIndex)
+        {
+            let largest = parenIndex;
+            let left= parenIndex * 2 + 1;
+            let right = left + 1;
+            if (left < length && array[left] > array[largest]){
+                largest = left;
+            }
+            if (right < length && array[right] > array[largest]){
+                largest = right;
+            }
+            if (largest !== parenIndex){
+                [array[parenIndex], array[largest]] = [array[largest], array[parenIndex]];
+                heaps(array, length, largest);
+            }
+            return array;
+        }
+        function heap_sort(array)
+        {
+            let length = array.length;
+            let lastParentNode= Math.floor(length/2-1);
+            let lastC = length-1;
+            while (lastParentNode >= 0){
+                heaps(array, length, lastParentNode);
+                lastParentNode--;
+            }
+            while (lastC >=0){
+                [array[0],array[lastC]]=[array[lastC], array[0]];
+                heaps(array, lastC, 0);
+                lastC--;
+            }
+            return array;
+        }
+        Arreglo_Ordenado="El arreglo ordenado es --> ["+heap_sort(array)+"]";
+        
+    </script>
+</head>
+<body>
+    <!--Formularios en HTML que son procesadas por JS-->
+    <h1>ORDENAMIENTO</h1>
+    Arreglo = [6, 5, 20, 3, 16, 4, 13, 9, 15, 8, 10, 19, 12, 14, 11, 1, 2, 18, 17, 7]
+    <p>
+        <button type="button" onclick="document.write(Arreglo_Ordenado)">Ordenamiento por montículos</button>
+    </p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento por mezcla</title>
+    <script>
+        
+        izquierda=[3,4,5,8,9,10,14,15,18,19];//10 elementos//ordenado
+        derecha=[1,2,6,7,11,12,13,16,17,20];//10 elementos//ordenado
+        function Merge_sort(izquierda, derecha){
+            let i = 0;
+            let j = 0;
+            let resultados = []
+            while (i < izquierda.length || j < derecha.length)
+            {
+                if (i === izquierda.length){
+                    resultados.push(derecha[j]);
+                    ++j;
+                }else if (j === derecha.length || izquierda[i] <= derecha[j]) {
+                    resultados.push(izquierda[i])
+                    ++i;
+                }else{
+                    resultados.push(derecha[j]);
+                    ++j;
+                }
+            }  
+            document.getElementById("lblResultado").innerHTML = "El listado ordenado es: ["+ resultados +"]";
+       }
+    </script>
+</head>
+<body>
+    <!--Formularios en HTML que son procesadas por JS-->
+    <h1>ORDENAMIENTO</h1>
+    <p>izquierda=[3, 4, 5, 8, 9, 10, 14, 15, 18, 19]</p>
+    <p>derecha=[1, 2, 6, 7, 11, 12, 13, 16, 17, 20]</p>
+    <p>
+        <button type="button" onclick="Merge_sort(izquierda,derecha)">Ordenamiento por mezcla</button>
+    </p>
+    <p id = "lblResultado"></p>
+</body>
+</html>

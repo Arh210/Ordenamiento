@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento por selección</title>
+    <script>
+        var array=[16,4,10,19,13,9,15,8,6,5,20,3,12,7,11,1,2,18,17,14];
+        function selection_sort(array)
+        {
+            for ( let i = 0; i < array.length - 1; i++){
+                let minIndex = i;
+                for (let j = i +1;j<array.length; j++){
+                    if (array[j]< array[minIndex]){
+                        minIndex = j;
+                    }
+                }
+                const temp = array[i];
+                array[i] = array[minIndex];
+                array[minIndex] = temp;
+            }
+            document.getElementById("lblResultado").innerHTML = "El listado ordenado es : [" + array +"]";
+        }
+    </script>
+</head>
+<body>
+    <!--Formularios en HTML que son procesadas por JS-->
+    <h1>ORDENAMIENTO</h1>
+    Arreglo = [16, 4, 10, 19, 13, 9, 15, 8, 6, 5, 20, 3, 12, 7, 11, 1, 2, 18, 17, 14]
+    <p>
+        <button type="button" onclick="selection_sort(array)">Ordenamiento por selección</button>
+    </p>
+    <p id = "lblResultado"></p>
+</body>
+</html>

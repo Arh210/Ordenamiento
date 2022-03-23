@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenamiento rápido</title>
+    <script>
+        array = [6,1,2,18,17,7,5,20,3,16,4,13,9,12,14,11,15,8,10,19];
+        function quickSort(array) {
+
+        if (array.length < 1) {
+            return [];
+        }
+
+        var left = [];
+        var right = [];
+        var pivot = array[0];
+
+        for (var i = 1; i < array.length; i++) {
+            if (array[i] < pivot) {
+            left.push(array[i]);
+            }
+            else {
+            right.push(array[i]);
+            }
+        }
+
+        return [].concat(quickSort(left), pivot, quickSort(right));
+        }
+        Arreglo_Ordenado="El arreglo ordenado es --> ["+quickSort(array)+"]"
+    </script>
+</head>
+<body>
+    <!--Formularios en HTML que son procesadas por JS-->
+    <h1>ORDENAMIENTO</h1>
+    Arreglo = [6, 1, 2, 18, 17, 7, 5, 20, 3, 16, 4, 13, 9, 12, 14, 11, 15, 8, 10, 19]
+    <p>
+        <button type="button" onclick="document.write(Arreglo_Ordenado)">Ordenamiento rápido</button>
+    </p>
+</body>
+</html>
